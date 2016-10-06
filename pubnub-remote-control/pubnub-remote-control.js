@@ -8,6 +8,8 @@
 
 (function() {
 
+    'use strict';
+
     var options, pubnub;
     var defaultProperties = {
         publishKey: null,
@@ -15,49 +17,47 @@
         inputChannel: 'input'
     };
 
-    // constructor
-    this.PubnubRemoteControl = function (customProperties) {
+    var PubnubRemoteControl = function PubnubRemoteControl(customProperties) {
         if (customProperties && typeof customProperties === "object") {
-            this.options = extendDefaultProperties(defaultProperties, customProperties);
+            this.options = this.extendDefaultProperties(defaultProperties, customProperties);
         }
-        initPubnub(this.options.subscribeKey, this.options.inputChannel);
+        this.initPubnub(this.options.subscribeKey, this.options.inputChannel);
     }
 
-    // private methods
-    function extendDefaultProperties(defaultProperties, customProperties) {
-        var property;
-        for (property in customProperties) {
-            if (customProperties.hasOwnProperty(property)) {
-                defaultProperties[property] = customProperties[property];
+    PubnubRemoteControl.prototype = {
+        initPubnub: function initPubnub(subscribeKey, inputChannel) {
+            pubnub = PUBNUB.init({ subscribe_key: subscribeKey, ssl: (('https:' == document.location.protocol) ? true : false) });
+            pubnub.subscribe({ channel: inputChannel, message: this.processInput });
+        },
+        processInput: function processInput(input) {
+            if(input && typeof input === "object" && input.button) {
+                switch (input.button) {
+                    case 'left' :
+                        Reveal.navigateLeft();
+                        break;
+                    case 'right' :
+                        Reveal.navigateRight();
+                        break;
+                    case 'up' :
+                        Reveal.navigateUp();
+                        break;
+                    case 'down' :
+                        Reveal.navigateDown();
+                        break;
+                }
             }
-        }
-        return defaultProperties;
-    }
-
-    function initPubnub(subscribeKey, inputChannel) {
-        pubnub = PUBNUB.init({ subscribe_key: subscribeKey, ssl: (('https:' == document.location.protocol) ? true : false) });
-        pubnub.subscribe({ channel: inputChannel, message: processInput });
-    }
-
-    function processInput(input) {
-        if(input && typeof input === "object" && input.button) {
-            switch (input.button) {
-                case 'left' :
-                    Reveal.navigateLeft();
-                    break;
-                case 'right' :
-                    Reveal.navigateRight();
-                    break;
-                case 'up' :
-                    Reveal.navigateUp();
-                    break;
-                case 'down' :
-                    Reveal.navigateDown();
-                    break;
+        },
+        extendDefaultProperties: function extendDefaultProperties(defaultProperties, customProperties) {
+            var property;
+            for (property in customProperties) {
+                if (customProperties.hasOwnProperty(property)) {
+                    defaultProperties[property] = customProperties[property];
+                }
             }
+            return defaultProperties;
         }
     }
+    
+    Reveal.getConfig().pubnubRemoteControl && new PubnubRemoteControl(Reveal.getConfig().pubnubRemoteControl);
 
 }());
-
-Reveal.getConfig().pubnubRemoteControl && new PubnubRemoteControl(Reveal.getConfig().pubnubRemoteControl);
