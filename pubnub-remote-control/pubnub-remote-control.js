@@ -1,6 +1,6 @@
 /*!
  * reveal.js PubNub Remote Control Plugin v. 0.1
- * https://github.com/salvatorecordiano/reveal-js-pubnub-plugin
+ * https://github.com/salvatorecordiano/reveal-js-pubnub-remote-control-plugin/
  *
  * Copyright (C) 2016 Salvatore Cordiano, http://www.salvatorecordiano.it/
  * Released under the MIT license
