@@ -19,3 +19,19 @@ Reveal.initialize({
 	]
 });
 ```
+
+## Configuration
+
+The ```pubnub-remote-control.js``` plugin has several parameters that you can set for your presentation by providing an ```pubnubRemoteControl``` option in the reveal.js initialization options. 
+Not all configuration parameters are optional.
+
+```javascript
+Reveal.initialize({
+	// ...
+	pubnubRemoteControl: {
+		subscribeKey: 'PUBNUB SUBSCRIBE KEY', 	// PubNub Subscribe Key
+		inputChannel: 'input',			// the channel used to receive remote commands
+	},
+	// ...
+});
+```
