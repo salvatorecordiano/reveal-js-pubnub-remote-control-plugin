@@ -1,6 +1,6 @@
 # reveal.js PubNub Remote Control Plugin
 
-A plugin for [Reveal.js](https://github.com/hakimel/reveal.js) allowing to easily use [PubNub](https://www.pubnub.com/) API to advance through your slides. It allows automatically advances the slideshow to the next slide or fragment. 
+A plugin for [Reveal.js](https://github.com/hakimel/reveal.js) allowing to easily use [PubNub](https://www.pubnub.com/) API to advance through your slides. It remotely allows advances the slideshow to the next slide or fragment. 
 
 ## Installation
 
