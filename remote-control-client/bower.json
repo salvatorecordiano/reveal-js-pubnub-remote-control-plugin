@@ -1,0 +1,21 @@
+{
+  "name": "remote-control-client",
+  "authors": [
+    "Salvatore Cordiano <github@parallel.it>"
+  ],
+  "description": "reveal.js PubNub Remote Control Client",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "https://github.com/salvatorecordiano/reveal-js-pubnub-remote-control-plugin/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
