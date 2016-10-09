@@ -1,0 +1,5 @@
+{
+    "require": {
+        "pubnub/pubnub": "^3.8"
+    }
+}
