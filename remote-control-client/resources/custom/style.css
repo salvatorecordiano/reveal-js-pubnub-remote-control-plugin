@@ -7,6 +7,8 @@ body {
 .btn {
     width:100px;
 }
-#left {
-    margin-right:80px;
+#display {
+    font-size:36px;
+    vertical-align:middle;
+    padding:0px 20px;
 }

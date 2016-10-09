@@ -29,8 +29,10 @@ Not all configuration parameters are optional.
 Reveal.initialize({
 	// ...
 	pubnubRemoteControl: {
-		subscribeKey: 'PUBNUB SUBSCRIBE KEY', 	// PubNub Subscribe Key
+		subscribeKey: 'PUBNUB SUBSCRIBE KEY',	// PubNub subscribe key,
+		publishKey: 'PUBNUB PUBLISH KEY',		// PubNub publish key
 		inputChannel: 'input',					// the channel used to receive remote commands
+		outputChannel: 'output',				// the channel used to update presentation status
 	},
 	// ...
 });
