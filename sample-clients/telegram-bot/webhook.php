@@ -45,7 +45,8 @@ else if($text && in_array($text, $allowedActions)) {
 $parameters = [];
 $parameters["chat_id"] = $chatId;
 $parameters["text"] = $response;
-$keyboard = ['keyboard' => [['LEFT'], ['RIGHT'], ['UP'], ['DOWN']], 'one_time_keyboard' => false];
+$keys = [['LEFT', 'RIGHT'], ['UP', 'DOWN']];
+$keyboard = ['keyboard' => $keys, 'resize_keyboard' => false, 'one_time_keyboard' => false];
 $parameters["reply_markup"] = json_encode($keyboard, true);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);

@@ -18,10 +18,8 @@ function buttonCommand(button) {
 }
 
 jQuery(document).ready(function() {
-
     jQuery('.btn').click(function (eventObject) {
         var targetId = jQuery(this).attr('id');
         buttonCommand(targetId);
     });
-
 });
