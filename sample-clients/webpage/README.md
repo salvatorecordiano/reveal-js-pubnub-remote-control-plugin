@@ -8,7 +8,7 @@ Install dependencies using Bower with the following command.
 bower install
 ```
 
-Update configuration with the PubNub API keys.
+Update configuration inside the file ```resources/custom/remote-control-client.js``` with the PubNub API keys.
 
 ```javascript
 var pubnub = PUBNUB({
