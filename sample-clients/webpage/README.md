@@ -2,6 +2,17 @@
 
 ## Installation
 
+Install dependencies using Bower with the following command.
+
 ```
 bower install
+```
+
+Update configuration with the PubNub API keys.
+
+```javascript
+var pubnub = PUBNUB({
+	publish_key : '---INSERT KEY HERE---',		// PubNub publish key
+    subscribe_key : '---INSERT KEY HERE---'		// PubNub subscribe key
+});
 ```
