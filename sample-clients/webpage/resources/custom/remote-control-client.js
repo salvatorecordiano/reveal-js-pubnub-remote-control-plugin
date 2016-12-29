@@ -1,6 +1,7 @@
 var pubnub = PUBNUB({
     publish_key : '---INSERT KEY HERE---',
-    subscribe_key : '---INSERT KEY HERE---'
+    subscribe_key : '---INSERT KEY HERE---',
+    ssl: true,
 });
 
 pubnub.subscribe({
