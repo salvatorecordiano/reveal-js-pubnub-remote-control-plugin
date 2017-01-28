@@ -1,8 +1,8 @@
 /*!
- * reveal.js PubNub Remote Control Plugin v. 0.1.1
+ * reveal.js PubNub Remote Control Plugin v. 0.1.2
  * https://github.com/salvatorecordiano/reveal-js-pubnub-remote-control-plugin/
  *
- * Copyright (C) 2016 Salvatore Cordiano, http://www.salvatorecordiano.it/
+ * Copyright (C) 2016-2017 Salvatore Cordiano, http://www.salvatorecordiano.it/
  * Released under the MIT license
  */
 
@@ -32,8 +32,13 @@
             options.publishKey && initReveal();
 
             function initPubNub() {
-                pubnub = PUBNUB.init({ subscribe_key: options.subscribeKey, publish_key: options.publishKey, ssl: (('https:' == document.location.protocol) ? true : false) });
-                pubnub.subscribe({ channel: options.inputChannel, message: processInput });
+                pubnub = new PubNub({ publishKey: options.publishKey, subscribeKey: options.subscribeKey, ssl: true });
+                pubnub.subscribe({ channels: [ options.inputChannel ] });
+                pubnub.addListener({
+                    message: function(event) {
+                        processInput(event.message);
+                    }
+                });
             }
 
             function initReveal() {

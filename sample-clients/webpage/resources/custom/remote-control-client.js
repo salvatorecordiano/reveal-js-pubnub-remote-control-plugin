@@ -1,14 +1,20 @@
-var pubnub = PUBNUB({
-    publish_key : '---INSERT KEY HERE---',
-    subscribe_key : '---INSERT KEY HERE---',
-    ssl: true,
+'use strict';
+
+var pubnub = new PubNub({
+    publishKey: '---INSERT KEY HERE---',
+    subscribeKey: '---INSERT KEY HERE---',
+    ssl: true
+});
+
+pubnub.addListener({
+    message: function(event) {
+        var message = event.message;
+        jQuery('#display').text(message.slide + '.' + message.part);
+    }
 });
 
 pubnub.subscribe({
-    channel : 'output',
-    message : function (message, envelope, channelOrGroup, time, channel) {
-        jQuery('#display').text(message.slide + '.' + message.part);
-    }
+    channels: ['output']
 });
 
 function buttonCommand(button) {
