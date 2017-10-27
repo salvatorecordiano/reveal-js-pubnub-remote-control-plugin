@@ -1,5 +1,5 @@
 /*!
- * reveal.js PubNub Remote Control Plugin v. 0.1.2
+ * reveal.js PubNub Remote Control Plugin v. 0.1.3
  * https://github.com/salvatorecordiano/reveal-js-pubnub-remote-control-plugin/
  *
  * Copyright (C) 2016-2017 Salvatore Cordiano, http://www.salvatorecordiano.it/
@@ -24,7 +24,7 @@
             var options = {};
             var pubnub;
 
-            if (customProperties && typeof customProperties === "object") {
+            if (customProperties && typeof customProperties === 'object') {
                 extendDefaultProperties(options, customProperties);
             }
 
@@ -73,7 +73,7 @@
             }
 
             function processInput(input) {
-                if(input && typeof input === "object" && input.button) {
+                if(input && typeof input === 'object' && input.button) {
                     switch (input.button) {
                         case 'left' :
                             Reveal.navigateLeft();

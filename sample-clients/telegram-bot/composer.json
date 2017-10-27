@@ -1,5 +1,12 @@
 {
+    "name": "salvatorecordiano/reveal-js-pubnub-remote-control-plugin",
+    "authors": [
+        {
+            "name": "Salvatore Cordiano",
+            "email": "github@parallel.it"
+        }
+    ],
     "require": {
-        "pubnub/pubnub": "^3.8"
+        "pubnub/pubnub": "~4.0.0"
     }
 }
